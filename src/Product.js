@@ -5,7 +5,6 @@ import { useStateValue } from "./StateProvider";
 // defining props in react
 function Product({ id, title, image, price, rating }) {
   const [{ basket }, dispatch] = useStateValue();
-  console.log("this is the basket >>>>", basket);
 
   const addToBasket = () => {
     //dispatch the item into the data layer
@@ -27,14 +26,14 @@ function Product({ id, title, image, price, rating }) {
         {/* CALLING PROPS IN React */}
         <p>{title}</p>
         <p className="product__price">
-          <small>$</small>
+          <small>£</small>
           <strong>{price}</strong>
         </p>
         <div className="product__rating">
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <p>STAR</p>
+              <p>🌟</p>
             ))}
         </div>
       </div>
