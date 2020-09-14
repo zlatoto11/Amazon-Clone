@@ -7,6 +7,14 @@ import Checkout from "./Checkout";
 import Login from "./Login";
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
+import Payment from "./Payment";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import Orders from "./Orders";
+
+const promise = loadStripe(
+  "pk_test_51HRF38ETCBTTBleaBPEGY0qAOmRzrCeynYMDPPptKBbg55INgrPkyLemYzWrzPbKyPmvrG3eRrqaUMaSXjlGTF3K003aAopaEc"
+);
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -33,10 +41,12 @@ function App() {
   }, []);
   return (
     <Router>
-      {/* RENDER NO MATTER WHAT ROUTE ITS IN */}
-
       <div className="app">
         <Switch>
+          <Route path="/orders">
+            <Header />
+            <Orders />
+          </Route>
           <Route path="/login">
             <Login />
           </Route>
@@ -45,6 +55,13 @@ function App() {
           <Route path="/checkout">
             <Header />
             <Checkout />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            {/* Higher order function, we wrap payment component in elements componenet. */}
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
           </Route>
           {/* DEFAULT ROOT AT THE BOTTOM */}
           <Route path="/">
