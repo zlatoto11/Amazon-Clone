@@ -30,7 +30,7 @@ function Header() {
       </div>
 
       <div className="header__nav">
-        {/* only redirect if no user  code below */}
+        {/* only redirect if user == null code below */}
         <Link to={!user && "/login"}>
           <div onClick={handleAuthentication} className="header__option">
             <span className="header__optionLineOne">
@@ -58,7 +58,7 @@ function Header() {
             <ShoppingBasketIcon />
             {/* TWO CLASSNAMES */}
             <span className="header__optionLineTwo header__basketCount">
-              {/* by adding a ? it means it will hadnle the error if not what expected comes up */}
+              {/* by adding a ? it means it will handle the error if not what expected comes up */}
               {basket?.length}
             </span>
           </div>

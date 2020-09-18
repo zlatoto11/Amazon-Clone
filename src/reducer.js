@@ -1,4 +1,4 @@
-// Initial State of data layer, in this case empty basket
+// Initial State of data layer, in this case empty basket and null user.
 export const initialState = {
   basket: [],
   user: null,

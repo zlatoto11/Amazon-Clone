@@ -16,8 +16,10 @@ function Checkout() {
         />
 
         <div>
+          {/* get user from React Context API, optional chaining used if user doesnt exist as to not error the application*/}
           <h3>hello,{user?.email}</h3>
           <h2 className="checkout__title">Your shopping basket </h2>
+          {/* Goes through each item in the basket and creates a new checkout component and sets attributes */}
           {basket.map((item) => (
             <CheckoutProduct
               id={item.id}

@@ -4,6 +4,7 @@ import { useStateValue } from "./StateProvider";
 
 // defining props in react
 function Product({ id, title, image, price, rating }) {
+  // pulling from data layer basket attribute
   const [{ basket }, dispatch] = useStateValue();
 
   const addToBasket = () => {

@@ -8,6 +8,7 @@ function Orders() {
   const [{ basket, user }, dispatch] = useStateValue();
   const [orders, setOrders] = useState([]);
 
+  //Runs everytime the user changes.
   useEffect(() => {
     //Only if user exists.
     if (user) {
@@ -27,6 +28,7 @@ function Orders() {
           )
         );
     } else {
+      //Set orders to empty if user does not exist.
       setOrders([]);
     }
   }, [user]);
@@ -36,6 +38,7 @@ function Orders() {
       <h1>Your Orders</h1>
 
       <div className="orders__order">
+        //for all orders create a new Order component
         {orders?.map((order) => (
           <Order order={order} />
         ))}

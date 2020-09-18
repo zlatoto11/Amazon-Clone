@@ -5,13 +5,16 @@ import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 
 function Login() {
+  // The second return paramater of useState is always a setter thats how it knows what to do.
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
 
   const signIn = (e) => {
+    // prevents default refresh behaviour when pressing a button.
     e.preventDefault();
 
+    //How sign in with firebase database
     auth
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
@@ -25,6 +28,7 @@ function Login() {
   const register = (e) => {
     e.preventDefault();
 
+    //how creating an account works with firebase database
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
@@ -53,6 +57,7 @@ function Login() {
           <input
             type="text"
             value={email}
+            // as we're typing update the email field we created
             onChange={(e) => setEmail(e.target.value)}
           />
 

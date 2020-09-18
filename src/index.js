@@ -8,6 +8,7 @@ import reducer, { initialState } from "./reducer";
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* surrounding the App in our State provider (REACT CONTEXT API) means we can access any saved data from anywhere inside the app without having to manually pass it down layer by layer */}
     <StateProvider initialState={initialState} reducer={reducer}>
       <App />
     </StateProvider>
