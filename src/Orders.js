@@ -38,7 +38,7 @@ function Orders() {
       <h1>Your Orders</h1>
 
       <div className="orders__order">
-        //for all orders create a new Order component
+        {/* //for all orders create a new Order component */}
         {orders?.map((order) => (
           <Order order={order} />
         ))}
